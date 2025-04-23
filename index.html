@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('/api/placeholder/800/600') no-repeat center;
+            background: url('hero.avif') no-repeat center;
             background-size: cover;
             opacity: 0.2;
             z-index: 0;
@@ -429,7 +429,7 @@
             <div class="hero-text animate">
                 <h1>IMOU RANGER 2</h1>
                 <p>Cámara domo motorizada WiFi con inteligencia artificial, detección humana y cobertura de 360° para mantener seguro lo que más te importa.</p>
-                <a href="tel:+573165695773" class="btn animate delay-1">Comprar ahora</a>
+                <a href="#" class="btn animate delay-1" id="whatsappBtn">Contactar por WhatsApp</a>
                 <a href="#features" class="btn btn-outline animate delay-2">Ver características</a>
             </div>
             <div class="hero-image animate delay-3">
@@ -528,7 +528,7 @@
             <h2 class="cta-title animate">Protege tu hogar hoy mismo</h2>
             <p class="animate delay-1">Seguridad avanzada con tecnología inteligente al alcance de tu mano.</p>
             <div class="cta-buttons">
-                <a href="tel:+573165695773" class="btn animate delay-2">Comprar ahora</a>
+                <a href="#" class="btn animate delay-2" id="whatsappBtn2">Contactar por WhatsApp</a>
                 <a href="#features" class="btn btn-outline animate delay-3">Ver más detalles</a>
             </div>
         </div>
@@ -601,7 +601,7 @@
                 updateGallery();
             }, 5000);
             
-            // Smooth scroll para los enlaces
+            // Smooth scroll para los enlaces internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     e.preventDefault();
@@ -615,6 +615,33 @@
                             behavior: 'smooth'
                         });
                     }
+                });
+            });
+            
+            // Función para detectar dispositivo y redirigir a WhatsApp
+            function redirectToWhatsApp() {
+                const phoneNumber = "573165695773";
+                const message = "Hola, estoy interesado en la cámara IMOU RANGER 2. ¿Podría darme más información?";
+                const encodedMessage = encodeURIComponent(message);
+                
+                // Detectar si es móvil
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                
+                if (isMobile) {
+                    // Redirigir a la app de WhatsApp en móviles
+                    window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
+                } else {
+                    // Redirigir a WhatsApp Web en escritorio
+                    window.location.href = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
+                }
+            }
+            
+            // Asignar función a los botones de WhatsApp
+            const whatsappBtns = document.querySelectorAll('#whatsappBtn, #whatsappBtn2');
+            whatsappBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    redirectToWhatsApp();
                 });
             });
         });
