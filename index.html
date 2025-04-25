@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,7 +53,7 @@
             width: 100%;
             max-width: 1200px;
             margin: auto;
-            padding: 2rem ;
+            padding: 2rem;
             position: relative;
             z-index: 1;
             display: flex;
@@ -400,37 +401,57 @@
 
         /* Animaciones */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .animate {
             animation: fadeIn 0.8s ease forwards;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
     </style>
 </head>
+
 <body>
     <!-- Sección Hero -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-image animate delay-3">
-                <img src="hero.avif" alt="IMOU RANGER 2 Cámara Domo">
+                <video src="imou.mp4" autoplay loop muted playsinline alt="IMOU RANGER 2 Cámara Domo"></video>
             </div>
 
             <div class="hero-text animate">
                 <h1>IMOU RANGER 2</h1>
-                <p>Cámara domo motorizada WiFi con inteligencia artificial, detección humana y cobertura de 360° para mantener seguro lo que más te importa. Por tan solo $149.999 pesos</p>
+                <p>Cámara domo motorizada WiFi con inteligencia artificial, detección humana y cobertura de 360° para
+                    mantener seguro lo que más te importa. Por tan solo $149.999 pesos</p>
                 <p> $149.999 Envio gratis</p>
-                
+
                 <a href="#" class="btn animate delay-1" id="whatsappBtn">Contactar por WhatsApp</a>
                 <a href="#features" class="btn btn-outline animate delay-2">Ver características</a>
             </div>
-            
+
         </div>
     </section>
 
@@ -441,12 +462,14 @@
             <div class="feature-card animate">
                 <div class="feature-icon">🔍</div>
                 <h3 class="feature-title">Detección Humana con IA</h3>
-                <p class="feature-desc">Algoritmos avanzados que distinguen personas de otros objetos en movimiento, reduciendo falsas alarmas.</p>
+                <p class="feature-desc">Algoritmos avanzados que distinguen personas de otros objetos en movimiento,
+                    reduciendo falsas alarmas.</p>
             </div>
             <div class="feature-card animate delay-1">
                 <div class="feature-icon">🔄</div>
                 <h3 class="feature-title">Cobertura 360°</h3>
-                <p class="feature-desc">Rotación horizontal completa y 90° vertical para monitorear cualquier rincón de tu hogar.</p>
+                <p class="feature-desc">Rotación horizontal completa y 90° vertical para monitorear cualquier rincón de
+                    tu hogar.</p>
             </div>
             <div class="feature-card animate delay-2">
                 <div class="feature-icon">👁️</div>
@@ -461,7 +484,8 @@
             <div class="feature-card animate delay-4">
                 <div class="feature-icon">🔊</div>
                 <h3 class="feature-title">Audio Bidireccional</h3>
-                <p class="feature-desc">Comunícate con tus seres queridos o alerta a intrusos con claridad de sonido.</p>
+                <p class="feature-desc">Comunícate con tus seres queridos o alerta a intrusos con claridad de sonido.
+                </p>
             </div>
             <div class="feature-card animate delay-4">
                 <div class="feature-icon">🌙</div>
@@ -538,43 +562,43 @@
 
     <script>
         // Animaciones al hacer scroll
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             const animatedElements = document.querySelectorAll('.animate');
-            
+
             function checkScroll() {
                 animatedElements.forEach(element => {
                     const elementTop = element.getBoundingClientRect().top;
                     const elementVisible = 150;
-                    
+
                     if (elementTop < window.innerHeight - elementVisible) {
                         element.style.opacity = '1';
                         element.style.transform = 'translateY(0)';
                     }
                 });
             }
-            
+
             // Inicializar elementos como no visibles
             animatedElements.forEach(element => {
                 element.style.opacity = '0';
                 element.style.transform = 'translateY(20px)';
                 element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
             });
-            
+
             // Activar la primera vez y al hacer scroll
             checkScroll();
             window.addEventListener('scroll', checkScroll);
-            
+
             // Funcionalidad del slider de galería
             const gallerySlider = document.getElementById('gallerySlider');
             const galleryDots = document.querySelectorAll('.gallery-dot');
             let currentSlide = 0;
-            
+
             function updateGallery() {
                 gallerySlider.scrollTo({
                     left: gallerySlider.offsetWidth * currentSlide,
                     behavior: 'smooth'
                 });
-                
+
                 galleryDots.forEach((dot, index) => {
                     if (index === currentSlide) {
                         dot.classList.add('active');
@@ -583,28 +607,28 @@
                     }
                 });
             }
-            
+
             galleryDots.forEach(dot => {
-                dot.addEventListener('click', function() {
+                dot.addEventListener('click', function () {
                     currentSlide = parseInt(this.getAttribute('data-index'));
                     updateGallery();
                 });
             });
-            
+
             // Autoplay del slider
-            setInterval(function() {
+            setInterval(function () {
                 currentSlide = (currentSlide + 1) % galleryDots.length;
                 updateGallery();
             }, 5000);
-            
+
             // Smooth scroll para los enlaces internos
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
+                anchor.addEventListener('click', function (e) {
                     e.preventDefault();
-                    
+
                     const targetId = this.getAttribute('href');
                     const targetElement = document.querySelector(targetId);
-                    
+
                     if (targetElement) {
                         window.scrollTo({
                             top: targetElement.offsetTop,
@@ -613,16 +637,16 @@
                     }
                 });
             });
-            
+
             // Función para detectar dispositivo y redirigir a WhatsApp
             function redirectToWhatsApp() {
                 const phoneNumber = "573165695773";
                 const message = "Hola, estoy interesado en la cámara IMOU RANGER 2. ¿Podría darme más información?";
                 const encodedMessage = encodeURIComponent(message);
-                
+
                 // Detectar si es móvil
                 const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-                
+
                 if (isMobile) {
                     // Redirigir a la app de WhatsApp en móviles
                     window.location.href = `whatsapp://send?phone=${phoneNumber}&text=${encodedMessage}`;
@@ -631,11 +655,11 @@
                     window.location.href = `https://web.whatsapp.com/send?phone=${phoneNumber}&text=${encodedMessage}`;
                 }
             }
-            
+
             // Asignar función a los botones de WhatsApp
             const whatsappBtns = document.querySelectorAll('#whatsappBtn, #whatsappBtn2');
             whatsappBtns.forEach(btn => {
-                btn.addEventListener('click', function(e) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
                     redirectToWhatsApp();
                 });
@@ -643,4 +667,5 @@
         });
     </script>
 </body>
+
 </html>
