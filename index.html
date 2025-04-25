@@ -17,17 +17,22 @@
             background-color: #f8f9fa;
             color: #333;
             line-height: 1.6;
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
         }
 
         /* Sección de encabezado principal */
         .hero {
             position: relative;
-            height: 100vh;
+            height: 80vh;
             background: linear-gradient(135deg, #3a3d98 0%, #e91e63 100%);
             color: white;
             overflow: hidden;
             display: flex;
             align-items: center;
+            gap: 2rem;
+
         }
 
         .hero::before {
@@ -46,14 +51,15 @@
         .hero-content {
             width: 100%;
             max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
+            margin: auto;
+            padding: 4rem 2rem ;
             position: relative;
             z-index: 1;
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
             align-items: center;
+            gap: 2rem;
         }
 
         .hero-text {
