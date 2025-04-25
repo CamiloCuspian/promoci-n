@@ -25,7 +25,7 @@
         /* Sección de encabezado principal */
         .hero {
             position: relative;
-            height: 80vh;
+            height: 100%;
             background: linear-gradient(135deg, #3a3d98 0%, #e91e63 100%);
             color: white;
             overflow: hidden;
@@ -52,12 +52,12 @@
             width: 100%;
             max-width: 1200px;
             margin: auto;
-            padding: 4rem 2rem ;
+            padding: 2rem ;
             position: relative;
             z-index: 1;
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             gap: 2rem;
         }
@@ -136,15 +136,10 @@
         }
 
         /* Sección de características */
-        .features {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
         .section-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 1.8rem;
             margin-bottom: 3rem;
             position: relative;
             color: #333;
@@ -276,11 +271,6 @@
         }
 
         /* Sección de especificaciones */
-        .specs {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
 
         .specs-container {
             display: flex;
@@ -304,7 +294,7 @@
 
         .specs-details {
             flex: 1;
-            min-width: 300px;
+            min-width: 240px;
             padding: 1rem;
         }
 
@@ -373,11 +363,6 @@
 
         /* Estilos responsivos */
         @media (max-width: 768px) {
-            .hero-content {
-                flex-direction: column;
-                text-align: center;
-                margin-top: 10%;
-            }
 
             .hero-text {
                 margin-right: 0;
